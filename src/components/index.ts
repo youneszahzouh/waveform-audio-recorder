@@ -1,3 +1,3 @@
-import waveformAudioRecorder from "./audio-recorder-waveform/waveform-audio-recorder";
+import waveformAudioRecorder from './audio-recorder-waveform/waveform-audio-recorder'
 
-export { waveformAudioRecorder };
+export { waveformAudioRecorder }

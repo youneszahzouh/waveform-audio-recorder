@@ -1,0 +1,30 @@
+{
+  "name": "waveform-audio-recorder",
+  "version": "1.0.0",
+  "description": "simple waveform audio recorder",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "audio-recorder",
+    "waveform",
+    "react",
+    "sound",
+    "recorder",
+    "audio",
+    "microphone",
+    "visualizer"
+  ],
+  "author": "Younes Zahzouh",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "tslib": "^2.4.1"
+  }
+}

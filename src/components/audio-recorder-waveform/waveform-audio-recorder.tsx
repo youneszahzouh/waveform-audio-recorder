@@ -30,7 +30,9 @@ const WaveformAudioRecorder = ({ setRecordedAudio }: any) => {
   // const { startRecording, saveRecording } = handlers;
 
   useEffect(() => {
-    setRecordedAudio(recorderState.audio)
+    if (setRecordedAudio) {
+      setRecordedAudio(recorderState.audio)
+    }
   }, [recorderState.audio, setRecordedAudio])
 
   useEffect(() => {

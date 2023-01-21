@@ -2,9 +2,9 @@
   "name": "waveform-audio-recorder",
   "version": "1.0.0",
   "description": "simple waveform audio recorder",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "main": "./dist/cjs/components/index.js",
+  "module": "./dist/esm/components/index.js",
+  "types": "./dist/esm/components/index.d.ts",
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "tsc",

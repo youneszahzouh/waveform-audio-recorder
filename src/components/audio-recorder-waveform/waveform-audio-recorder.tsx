@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { UseRecorder } from './types'
 import useRecorder from './use-recorder'
 
-const WaveformAudioRecorder = ({ setRecordedAudio }: any) => {
+const WaveformAudioRecorder = ({ setRecorderState }: any) => {
   const canvasRef = useRef(null)
 
   const draw = (ctx: any, chunks: any) => {
@@ -25,15 +25,13 @@ const WaveformAudioRecorder = ({ setRecordedAudio }: any) => {
     })
   }
 
-  const { recorderState }: UseRecorder = useRecorder(canvasRef, draw)
-  // const { recordingMinutes, recordingSeconds, initRecording } = recorderState;
-  // const { startRecording, saveRecording } = handlers;
+  const recorderState: UseRecorder = useRecorder(canvasRef, draw)
 
   useEffect(() => {
-    if (setRecordedAudio) {
-      setRecordedAudio(recorderState.audio)
+    if (setRecorderState) {
+      setRecorderState(recorderState)
     }
-  }, [recorderState.audio, setRecordedAudio])
+  }, [recorderState, setRecorderState])
 
   useEffect(() => {
     const canvas = canvasRef.current as any

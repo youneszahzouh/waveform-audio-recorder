@@ -1,14 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { WaveformAudioRecorder } from 'waveform-audio-recorder'
+import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
 root.render(
   <React.StrictMode>
-    <div>
-      <h2>Default counter</h2>
-      <WaveformAudioRecorder />
-    </div>
-    <hr />
+    <App />
   </React.StrictMode>,
 )

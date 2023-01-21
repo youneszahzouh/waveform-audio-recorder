@@ -1,0 +1,25 @@
+.container {
+  .recorder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b4b4b4;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    svg {
+      cursor: pointer;
+      color: #b4b4b4;
+    }
+
+    span {
+      min-width: 50px;
+      text-align: end;
+    }
+  }
+  .recording {
+    color: #04bbb3;
+    svg {
+      color: #04bbb3;
+    }
+  }
+}

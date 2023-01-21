@@ -2,12 +2,18 @@
   "name": "waveform-audio-recorder",
   "version": "1.0.0",
   "description": "simple waveform audio recorder",
-  "main": "index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run prettier && npm run lint"
   },
   "keywords": [
     "audio-recorder",
@@ -17,10 +23,16 @@
     "recorder",
     "audio",
     "microphone",
-    "visualizer"
+    "visualizer",
+    "typescript",
+    "javascript"
   ],
-  "author": "Younes Zahzouh",
-  "license": "ISC",
+  "author": "Younes Zahzouh (youneszahzouh)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youneszahzouh/waveform-audio-recorder.git"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.2.6",
@@ -43,5 +55,13 @@
   },
   "dependencies": {
     "tslib": "^2.4.1"
-  }
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ]
 }

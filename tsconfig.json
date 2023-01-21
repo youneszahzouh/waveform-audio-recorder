@@ -1,5 +1,5 @@
 {
-  "include": ["src", "tests", "tests"],
+  "include": ["src", "src/tests", "src/tests"],
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "module": "esnext",
@@ -18,6 +18,10 @@
     "jsx": "react",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true
+  },
+  "typeAcquisition": {
+    "include": ["jest"]
   }
 }

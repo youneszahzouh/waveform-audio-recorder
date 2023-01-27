@@ -3,8 +3,7 @@ import { saveRecording, startRecording } from './recorder-controls'
 import { Recorder, Interval, AudioTrack, MediaRecorderEvent } from './types'
 
 const initialState: Recorder = {
-  recordingMinutes: 0,
-  recordingSeconds: 0,
+  recordingDuration: 0,
   initRecording: false,
   mediaStream: null,
   mediaRecorder: null,
@@ -16,29 +15,24 @@ export default function useRecorder(canvasRef: any, draw: any) {
   const [processor, setProcessor] = useState<any>(null)
 
   useEffect(() => {
-    const MAX_RECORDER_TIME = 5
     let recordingInterval: Interval = null
 
     if (recorderState.initRecording)
       recordingInterval = setInterval(() => {
         setRecorderState((prevState: Recorder) => {
-          if (prevState.recordingMinutes === MAX_RECORDER_TIME && prevState.recordingSeconds === 0) {
-            typeof recordingInterval === 'number' && clearInterval(recordingInterval)
-            return prevState
-          }
+          // if (
+          //   prevState.recordingMinutes === 0 &&
+          //   prevState.recordingSeconds === MAX_RECORDER_TIME
+          // ) {
+          //   typeof recordingInterval === "number" &&
+          //     clearInterval(recordingInterval);
+          //   return prevState;
+          // }
 
-          if (prevState.recordingSeconds >= 0 && prevState.recordingSeconds < 59)
-            return {
-              ...prevState,
-              recordingSeconds: prevState.recordingSeconds + 1,
-            }
-          else if (prevState.recordingSeconds === 59)
-            return {
-              ...prevState,
-              recordingMinutes: prevState.recordingMinutes + 1,
-              recordingSeconds: 0,
-            }
-          else return prevState
+          return {
+            ...prevState,
+            recordingDuration: prevState.recordingDuration + 1,
+          }
         })
       }, 1000)
     else typeof recordingInterval === 'number' && clearInterval(recordingInterval)
@@ -130,7 +124,7 @@ export default function useRecorder(canvasRef: any, draw: any) {
   }, [recorderState.initRecording])
 
   return {
-    recorderState,
+    ...recorderState,
     // eslint-disable-next-line @typescript-eslint/promise-function-async
     startRecording: () => startRecording(setRecorderState),
     cancelRecording: () => setRecorderState(initialState),

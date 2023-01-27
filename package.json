@@ -1,6 +1,6 @@
 {
   "name": "waveform-audio-recorder",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "simple waveform audio recorder",
   "main": "./dist/cjs/components/index.js",
   "module": "./dist/esm/components/index.js",

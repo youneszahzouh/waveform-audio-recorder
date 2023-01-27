@@ -1,8 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 
 export interface Recorder {
-  recordingMinutes: number
-  recordingSeconds: number
+  recordingDuration: number
   initRecording: boolean
   mediaStream: MediaStream | null
   mediaRecorder: MediaRecorder | null
@@ -10,7 +9,11 @@ export interface Recorder {
 }
 
 export interface UseRecorder {
-  recorderState: Recorder
+  recordingDuration: number
+  initRecording: boolean
+  mediaStream: MediaStream | null
+  mediaRecorder: MediaRecorder | null
+  audio: string | null
   startRecording: () => void
   cancelRecording: () => void
   saveRecording: () => void

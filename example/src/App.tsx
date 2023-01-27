@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
+import { WaveformAudioRecorder } from 'waveform-audio-recorder'
 
-const App = () => {
-  const [recordedAudio, setRecordedAudio] = useState(null)
+function App() {
+  const [recorderState, setRecorderState] = useState<any>(null)
 
   return (
-    <div className={'container'}>
-      {/* <div className={classNames(styles['recorder'], initRecording ? styles['recording'] : '')}>
-        <button onClick={initRecording ? saveRecording : startRecording} size='32' variant='Bold' />
-        <div className={styles['waveform-container']}>
-          <WaveformAudioRecorder setRecordedAudio={setRecordedAudio} />
-        </div>
-        <span>{formatAudioDuration(recordingMinutes * 60 + recordingSeconds)}</span>
-      </div> */}
+    <div className='App'>
+      <button onClick={recorderState?.initRecording ? recorderState?.saveRecording : recorderState?.startRecording}>
+        Start
+      </button>
+      <WaveformAudioRecorder setRecorderState={setRecorderState} />
+
+      {recorderState?.recordingDuration}
     </div>
   )
 }

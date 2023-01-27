@@ -19,6 +19,6 @@
     }
   },
   "dependencies": {
-    "waveform-audio-recorder": "^1.0.1"
+    "waveform-audio-recorder": "^1.0.3"
   }
 }

@@ -15,7 +15,7 @@ npm install waveform-audio-recorder --save
 #### Yarn
 
 ```
-yarn install waveform-audio-recorder --save
+yarn add waveform-audio-recorder --save
 ```
 
 ## Example
